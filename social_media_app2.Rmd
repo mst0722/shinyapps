@@ -1,0 +1,50 @@
+---
+title: "A Shiny App"
+author: "Mary T."
+date: "October 8, 2017"
+output: ioslides_presentation
+---
+
+## Social Media Facts
+
+- Today around seven-in-ten Americans use social media to connect with one another, engage with news content, share information and entertain themselves.
+- According to the Pew Research Center social media adoption by American adults has increased from 5% in 2005 to over 70% today. (http://www.pewinternet.org/fact-sheet/social-media/).
+- Young adults were among the earliest social media adopters and continue to use these sites at high levels, but usage by older adults has increased in recent years.
+- This application looks at the data trends by age and gender.
+- It also calculates a non-scientific loss of productivity (years) based on gender and hours spent on social media.
+
+## Data structure
+
+```{r, echo = FALSE}
+age_SM <- read.table("age_SM.txt", header = TRUE)
+age_SM$Period <- as.Date(age_SM$Period, format = "%m / %d / %Y")
+
+gender_SM <- read.table("gender_SM.txt", header = TRUE)
+gender_SM$Period <- as.Date(gender_SM$Period, format = "%m / %d / %Y")
+
+```
+
+```{r echo = TRUE}
+str(age_SM)
+
+```
+
+```{r echo = TRUE}
+str(gender_SM)
+
+```
+
+
+## Data summary
+
+```{r echo = TRUE}
+head (age_SM, 5)
+head (gender_SM, 5)
+
+```
+
+
+## Application
+<iframe 
+  src="https://mst0722.shinyapps.io/Survey_app/" 
+  allowfullscreen> </iframe>
